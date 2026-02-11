@@ -3,77 +3,136 @@
 <head>
     <title>Bado Nonoi | Cyber Security</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             margin: 0;
-            background-color: #0a0f1c;
-            font-family: Arial, sans-serif;
-            color: #00ff99;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0f1c, #05080f);
+            color: white;
+        }
+
+        .hero {
+            padding: 120px 20px 80px;
             text-align: center;
         }
 
-        .container {
-            padding: 60px 20px;
+        .hero h1 {
+            font-size: 64px;
+            margin: 0;
+            background: linear-gradient(90deg, #00ff99, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #cccccc;
-            margin-bottom: 30px;
-        }
-
-        .box {
-            border: 1px solid #00ff99;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 500px;
-            border-radius: 10px;
-            background-color: #111827;
-        }
-
-        a {
-            display: inline-block;
+        .hero p {
+            font-size: 20px;
+            color: #aaaaaa;
             margin-top: 20px;
-            padding: 10px 20px;
-            border: 1px solid #00ff99;
-            color: #00ff99;
-            text-decoration: none;
-            border-radius: 5px;
         }
 
-        a:hover {
-            background-color: #00ff99;
+        .section {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            border-left: 4px solid #00ff99;
+            padding-left: 15px;
+        }
+
+        .card {
+            background: #111827;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,255,153,0.1);
+        }
+
+        .card p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #cccccc;
+        }
+
+        .skills span {
+            display: inline-block;
+            background: #00ff99;
             color: #0a0f1c;
+            padding: 8px 14px;
+            margin: 6px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .contact a {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #00ff99;
+            color: #0a0f1c;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            font-size: 16px;
+        }
+
+        .contact a:hover {
+            background: #00ccff;
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="hero">
     <h1>Bado Nonoi</h1>
-    <div class="subtitle">Cyber Security • Threat Analysis • Digital Defense</div>
+    <p>Cyber Security • Threat Analysis • Digital Defense</p>
+</div>
 
-    <div class="box">
-        <h2>About</h2>
-        <p>Focused on cyber security research, vulnerability analysis, and digital risk assessment.</p>
+<div class="section">
+    <h2>About</h2>
+    <div class="card">
+        <p>
+            Focused on cyber security research, vulnerability analysis, and digital risk assessment.
+            Building secure systems and understanding digital threat landscapes.
+        </p>
     </div>
+</div>
 
-    <div class="box">
-        <h2>Skills</h2>
-        <p>Network Security<br>Ethical Hacking<br>Security Research<br>Risk Analysis</p>
+<div class="section">
+    <h2>Skills</h2>
+    <div class="card skills">
+        <span>Network Security</span>
+        <span>Ethical Hacking</span>
+        <span>Security Research</span>
+        <span>Risk Analysis</span>
+        <span>Penetration Testing</span>
     </div>
+</div>
 
-    <div class="box">
-        <h2>Projects</h2>
-        <p>CTF Practice Lab<br>Security Testing Simulation<br>Web Vulnerability Research</p>
+<div class="section">
+    <h2>Projects</h2>
+    <div class="card">
+        <p><strong>CTF Practice Lab</strong><br>
+        Hands on capture the flag environment for vulnerability discovery.</p>
     </div>
+    <div class="card">
+        <p><strong>Security Testing Simulation</strong><br>
+        Simulated penetration testing for web applications.</p>
+    </div>
+</div>
 
-    <a href="#">Contact</a>
+<div class="contact">
+    <a href="#">Contact Me</a>
 </div>
 
 </body>
