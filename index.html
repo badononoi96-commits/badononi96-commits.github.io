@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        html { scroll-behavior: smooth; }
+
         body {
             margin: 0;
             font-family: 'Segoe UI', sans-serif;
@@ -12,9 +14,35 @@
             color: white;
         }
 
-        .hero {
-            padding: 120px 20px 80px;
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(10,15,28,0.9);
+            padding: 15px 0;
             text-align: center;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #00ff99;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        nav a:hover { color: #00ccff; }
+
+        .hero {
+            padding: 160px 20px 100px;
+            text-align: center;
+        }
+
+        .hero img {
+            width: 170px;
+            border-radius: 50%;
+            border: 3px solid #00ff99;
+            margin-bottom: 25px;
         }
 
         .hero h1 {
@@ -33,8 +61,16 @@
 
         .section {
             max-width: 900px;
-            margin: 80px auto;
+            margin: 100px auto;
             padding: 0 20px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section h2 {
@@ -50,6 +86,7 @@
             margin-bottom: 20px;
             border-radius: 12px;
             box-shadow: 0 0 20px rgba(0,255,153,0.1);
+            cursor: pointer;
         }
 
         .card p {
@@ -69,6 +106,13 @@
             font-size: 14px;
         }
 
+        .price {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #00ff99;
+            display: none;
+        }
+
         .contact {
             text-align: center;
             padding: 80px 20px;
@@ -85,30 +129,36 @@
             font-size: 16px;
         }
 
-        .contact a:hover {
-            background: #00ccff;
-        }
+        .contact a:hover { background: #00ccff; }
     </style>
 </head>
 
 <body>
 
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#services">Services</a>
+</nav>
+
 <div class="hero">
+    <img src="https://via.placeholder.com/300" alt="Profile Photo">
     <h1>Bado Nonoi</h1>
     <p>Cyber Security • Threat Analysis • Digital Defense</p>
 </div>
 
-<div class="section">
-    <h2>About</h2>
+<div id="about" class="section">
+    <h2>About Me</h2>
     <div class="card">
         <p>
-            Focused on cyber security research, vulnerability analysis, and digital risk assessment.
-            Building secure systems and understanding digital threat landscapes.
+            Passionate about cyber security, vulnerability research, and digital risk management.
+            Focused on building secure systems and understanding evolving cyber threats.
         </p>
     </div>
 </div>
 
-<div class="section">
+<div id="skills" class="section">
     <h2>Skills</h2>
     <div class="card skills">
         <span>Network Security</span>
@@ -119,21 +169,66 @@
     </div>
 </div>
 
-<div class="section">
-    <h2>Projects</h2>
+<div id="experience" class="section">
+    <h2>Experience</h2>
     <div class="card">
-        <p><strong>CTF Practice Lab</strong><br>
-        Hands on capture the flag environment for vulnerability discovery.</p>
+        <p><strong>Security Research Intern</strong><br>
+        2024<br>
+        Conducted vulnerability assessments and assisted in penetration testing simulations.</p>
     </div>
+
     <div class="card">
-        <p><strong>Security Testing Simulation</strong><br>
-        Simulated penetration testing for web applications.</p>
+        <p><strong>CTF Competitor</strong><br>
+        2023<br>
+        Participated in capture the flag competitions focused on web exploitation and cryptography.</p>
+    </div>
+</div>
+
+<div id="services" class="section">
+    <h2>Services</h2>
+
+    <div class="card" onclick="togglePrice(this)">
+        <p><strong>Website Security Audit</strong><br>
+        Click to view pricing</p>
+        <div class="price">Starting from Rp 2.500.000</div>
+    </div>
+
+    <div class="card" onclick="togglePrice(this)">
+        <p><strong>Penetration Testing</strong><br>
+        Click to view pricing</p>
+        <div class="price">Starting from Rp 5.000.000</div>
+    </div>
+
+    <div class="card" onclick="togglePrice(this)">
+        <p><strong>Full Security Assessment</strong><br>
+        Click to view pricing</p>
+        <div class="price">Starting from Rp 10.000.000</div>
     </div>
 </div>
 
 <div class="contact">
-    <a href="#">Contact Me</a>
+    <a href="https://wa.me/6282156728567?text=Hello%20Bado%20Nonoi%2C%20I%20am%20interested%20in%20your%20cyber%20security%20services." target="_blank">
+        Contact Me on WhatsApp
+    </a>
 </div>
+
+<script>
+    const sections = document.querySelectorAll('.section');
+
+    window.addEventListener('scroll', () => {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if(sectionTop < window.innerHeight - 100){
+                section.classList.add('show');
+            }
+        });
+    });
+
+    function togglePrice(card) {
+        const price = card.querySelector('.price');
+        price.style.display = price.style.display === "block" ? "none" : "block";
+    }
+</script>
 
 </body>
 </html>
